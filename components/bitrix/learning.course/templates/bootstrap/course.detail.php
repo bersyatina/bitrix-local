@@ -2,7 +2,7 @@
     use Bitrix\Main\UI\Extension;
     Extension::load('ui.bootstrap4');
 ?>
-<div>ТЕСТ3</div>
+
 <div class="container">
     <table class="learn-work-table">
         <tr class="learn-left-data">
