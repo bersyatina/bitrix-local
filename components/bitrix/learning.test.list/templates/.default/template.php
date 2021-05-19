@@ -5,37 +5,43 @@
 <?if ($arResult["TESTS_COUNT"] > 0):?>
 
 	<?foreach ($arResult["TESTS"] as $arTest):?>
-
-		<span style="font-family: 'Times New Roman', Times; font-size: 14pt;">
-            <?=GetMessage("LEARNING_TEST_NAME")?>: <?=$arTest["NAME"];?><br />
-        </span>
-
+        <br>
+        <p style="text-align: center;">
+            <span style="font-family: 'Times New Roman', Times; font-size: 14pt;">
+                <b><?=GetMessage("LEARNING_TEST_NAME")?>: <?=$arTest["NAME"];?></b><br />
+            </span>
+        </p>
+        <br>
 		<?if ($arTest["DESCRIPTION"] <> ''):?>
 			<?=$arTest["DESCRIPTION"]?><br />
 		<?endif?>
-
-		<?if ($arTest["ATTEMPT_LIMIT"] > 0):?>
-			<?=GetMessage("LEARNING_TEST_ATTEMPT_LIMIT")?>: <?=$arTest["ATTEMPT_LIMIT"]?>
-		<?else:?>
-			<?=GetMessage("LEARNING_TEST_ATTEMPT_LIMIT")?>: <?=GetMessage("LEARNING_TEST_ATTEMPT_UNLIMITED")?>
-		<?endif?>
+        <span style="font-family: 'Times New Roman', Times; font-size: 12pt;">
+            <?if ($arTest["ATTEMPT_LIMIT"] > 0):?>
+                <b><?=GetMessage("LEARNING_TEST_ATTEMPT_LIMIT")?>:</b> <?=$arTest["ATTEMPT_LIMIT"]?>
+            <?else:?>
+                <b><?=GetMessage("LEARNING_TEST_ATTEMPT_LIMIT")?>:</b> <?=GetMessage("LEARNING_TEST_ATTEMPT_UNLIMITED")?>
+            <?endif?>
+        </span>
+		<br />
+        <span style="font-family: 'Times New Roman', Times; font-size: 12pt;">
+            <?if ($arTest["TIME_LIMIT"] > 0):?>
+                <b><?=GetMessage("LEARNING_TEST_TIME_LIMIT")?>:</b> <?=$arTest["TIME_LIMIT"]?> <?=GetMessage("LEARNING_TEST_TIME_LIMIT_MIN")?>
+            <?else:?>
+                <b><?=GetMessage("LEARNING_TEST_TIME_LIMIT")?>:</b> <?=GetMessage("LEARNING_TEST_TIME_LIMIT_UNLIMITED")?>
+            <?endif?>
+        </span>
 		<br />
 
-		<?if ($arTest["TIME_LIMIT"] > 0):?>
-			<?=GetMessage("LEARNING_TEST_TIME_LIMIT")?>: <?=$arTest["TIME_LIMIT"]?> <?=GetMessage("LEARNING_TEST_TIME_LIMIT_MIN")?>
-		<?else:?>
-			<?=GetMessage("LEARNING_TEST_TIME_LIMIT")?>: <?=GetMessage("LEARNING_TEST_TIME_LIMIT_UNLIMITED")?>
-		<?endif?>
-		<br />
-
-		<?=GetMessage("LEARNING_PASSAGE_TYPE")?>:
-		<?if ($arTest["PASSAGE_TYPE"] == 2):?>
-			<?=GetMessage("LEARNING_PASSAGE_FOLLOW_EDIT")?>
-		<?elseif ($arTest["PASSAGE_TYPE"] == 1):?>
-			<?=GetMessage("LEARNING_PASSAGE_FOLLOW_NO_EDIT")?>
-		<?else:?>
-			<?=GetMessage("LEARNING_PASSAGE_NO_FOLLOW_NO_EDIT")?>
-		<?endif?>
+        <span style="font-family: 'Times New Roman', Times; font-size: 12pt;">
+            <b><?=GetMessage("LEARNING_PASSAGE_TYPE")?>:</b>
+            <?if ($arTest["PASSAGE_TYPE"] == 2):?>
+                <?=GetMessage("LEARNING_PASSAGE_FOLLOW_EDIT")?>
+            <?elseif ($arTest["PASSAGE_TYPE"] == 1):?>
+                <?=GetMessage("LEARNING_PASSAGE_FOLLOW_NO_EDIT")?>
+            <?else:?>
+                <?=GetMessage("LEARNING_PASSAGE_NO_FOLLOW_NO_EDIT")?>
+            <?endif?>
+        </span>
 		<br />
 
 		<?if ($arTest["PREVIOUS_TEST_ID"] > 0 && $arTest["PREVIOUS_TEST_SCORE"] > 0 && $arTest["PREVIOUS_TEST_LINK"]):?>
@@ -48,9 +54,9 @@
 			<input type="hidden" name="COURSE_ID" value="<?=$arTest["COURSE_ID"]?>" />
 			<input type="hidden" name="ID" value="<?=$arTest["ID"]?>" />
 			<?if ($arTest["ATTEMPT"] === false):?>
-				<input type="submit" name="next" value="<?=GetMessage("LEARNING_BTN_START")?>"<?php echo isset($arTest["PREVIOUS_NOT_COMPLETE"]) ? " disabled=\"1\"" : ""?> />
+				<input type="submit" name="next" class="btn btn-outline-primary btn-sm" value="<?=GetMessage("LEARNING_BTN_START")?>"<?php echo isset($arTest["PREVIOUS_NOT_COMPLETE"]) ? " disabled=\"1\"" : ""?> />
 			<?else:?>
-				<input type="submit" name="next" value="<?=GetMessage("LEARNING_BTN_CONTINUE")?>"<?php echo isset($arTest["PREVIOUS_NOT_COMPLETE"]) ? " disabled=\"1\"" : ""?> />
+				<input type="submit" name="next" class="btn btn-outline-primary btn-sm" value="<?=GetMessage("LEARNING_BTN_CONTINUE")?>"<?php echo isset($arTest["PREVIOUS_NOT_COMPLETE"]) ? " disabled=\"1\"" : ""?> />
 			<?endif?>
 		</form>
 		<div class="test-list-hr"></div>

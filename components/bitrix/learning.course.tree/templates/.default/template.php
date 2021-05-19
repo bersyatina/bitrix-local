@@ -49,7 +49,7 @@
 						echo $arItem["URL"];
 					else
 						echo 'javascript:void(0);';
-				?>"<?if($arItem["SELECTED"]):?> class="list-group-item list-group-item-action list-group-item-primary active"<?else:?> class="list-group-item list-group-item-action list-group-item-primary" <?endif?>><?php
+				?>"<?if($arItem["SELECTED"]):?> class="list-group-item list-group-item-action" style="background: #84b2f5;" <?else:?> class="list-group-item list-group-item-action list-group-item-primary" <?endif?>><?php
 					echo $arItem["NAME"];
 					if ($arItem['DELAYED'])
 					{
@@ -63,9 +63,9 @@
 					}
 					?></a>
 		<?elseif($arItem["TYPE"] == "CD"):?>
-			<a href="<?=$arItem["URL"]?>"<?if($arItem["SELECTED"]):?> class="list-group-item list-group-item-action list-group-item-primary active"<?else:?> class="list-group-item list-group-item-action list-group-item-primary"<?endif?>><?=$arItem["NAME"]?></a>
+			<a href="<?=$arItem["URL"]?>"<?if($arItem["SELECTED"]):?> class="list-group-item list-group-item-action" style="background: #84b2f5;" <?else:?> class="list-group-item list-group-item-action list-group-item-primary"<?endif?>><?=$arItem["NAME"]?></a>
 		<?elseif($arItem["TYPE"] == "TL"):?>
-			<a href="<?=$arItem["URL"]?>"<?if($arItem["SELECTED"]):?> class="list-group-item list-group-item-action list-group-item-primary active"<?else:?> class="list-group-item list-group-item-action list-group-item-primary"<?endif?>><?=$arItem["NAME"]?></a>
+			<a href="<?=$arItem["URL"]?>"<?if($arItem["SELECTED"]):?> class="list-group-item list-group-item-action" style="background: #84b2f5;" <?else:?> class="list-group-item list-group-item-action list-group-item-primary"<?endif?>><?=$arItem["NAME"]?></a>
 		<?endif?>
 
 	<?endforeach?>
