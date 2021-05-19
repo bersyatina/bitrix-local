@@ -30,6 +30,7 @@ Extension::load('ui.bootstrap4');
 
             <td class="learn-right-data" valign="top">
 
+
                 <?$APPLICATION->IncludeComponent("bitrix:learning.test.self", "", Array(
                     "LESSON_ID" => $arResult["VARIABLES"]["SELF_TEST_ID"],
                     "COURSE_ID"	=> $arParams["COURSE_ID"],
